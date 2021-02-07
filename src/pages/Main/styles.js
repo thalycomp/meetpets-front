@@ -31,7 +31,7 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   margin: 25px;
-  width: 100%;
+  width: 70%;
 
   input {
     margin: 4px 0px 4px 0px;
