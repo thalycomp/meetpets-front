@@ -12,6 +12,11 @@ export default createGlobalStyle`
     -moz-box-sizing: border-box;
   }
 
+  a {
+    text-decoration: none;
+    color: #FFFFFF;
+  }
+
   :root {
     --amarelo-color: #F2C849;
     --rosa-color:  #F28F79;

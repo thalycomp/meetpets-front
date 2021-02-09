@@ -2,9 +2,9 @@ import React from 'react'
 
 import { Button } from './styles';
 
-function ButtonComponent({ children }) {
+function ButtonComponent({ children, onClick }) {
   return (
-    <Button>{children}</Button>
+    <Button onClick={onClick}>{children}</Button>
   )
 }
 

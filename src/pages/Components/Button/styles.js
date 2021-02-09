@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Button = styled.button`
-  width: 290px;
+  max-width: 290px;
   height: 45px;
   border-radius: 6px;
   background: var(--amarelo-color);
