@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import logo from '../../assets/logo.png';
 import ButtonComponent from '../Components/Button';
 import Api from '../../services/Api';
-import history from 'history';
+import history from '../../services/history';
+import InputMask from "react-input-mask";
 
 import { 
   Container,
   Info,
   Form
 } from './styles';
-import { createBrowserHistory } from 'history';
 
 
 function Main() {
@@ -20,11 +20,9 @@ function Main() {
   const [ error, setError ] = useState(false);
   const [ idUser, setIdUser ] = useState('');
 
-  const history = createBrowserHistory();
-
   const handleNavigate = () => {
-    console.log('entrou')
     history.push(`/user/${idUser}`);
+    window.location.reload();
   }
 
   const handleSubmit = async (e) => {
@@ -32,7 +30,7 @@ function Main() {
       e.preventDefault();
 
       const reqData = {
-        name,
+        nome: name,
         email,
         instagram,
         whatsapp
@@ -42,9 +40,10 @@ function Main() {
 
       if(response.data.error) {
         setError(true);
+        return
       }
-
-      setIdUser(response);
+      
+      setIdUser(response.data);
 
     }catch(err) {
       console.log('err');
@@ -57,14 +56,14 @@ function Main() {
         <a href="/" className="">
           <img src={logo} alt="logo meetpets"/>
         </a>
-        {setIdUser && (
+        {idUser && (
           <>
           <h1>Cadastro efetuado com sucesso!</h1>
           <ButtonComponent onClick={() => handleNavigate()}>Ver QRCODE</ButtonComponent>
           </>
         )}
 
-        {!setIdUser && (
+        {!idUser && (
           <>
           <h1>Cadastre-se no evento e gere seu <em>QRCODE</em></h1>        
           <Form onSubmit={(e) => handleSubmit(e)}>
@@ -85,7 +84,8 @@ function Main() {
               required
               onChange={(e) => setInstagram(e.target.value)}
             />
-            <input type="number"
+            <InputMask 
+              mask="(88)99999-9999"
               placeholder="WhatsApp"
               required
               onChange={(e) => setWhatsapp(e.target.value)}
