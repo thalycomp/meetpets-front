@@ -38,7 +38,7 @@ export const InfoText = styled.div`
 
   align-items: center;
   justify-content: space-between;
-
+  
   color: var(--branco-color);
   margin-bottom: 20px;
   
@@ -46,9 +46,10 @@ export const InfoText = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: left;
+    justify-content: space-between;
     
-    width: 100%;
+    width: 71%;
+
     p {
       margin-left: 10px;
     }
@@ -56,6 +57,7 @@ export const InfoText = styled.div`
 
   img {
     margin-bottom: 30px;
+    max-width: 70%;
   }
   h1 {
     color: var(--branco-color);

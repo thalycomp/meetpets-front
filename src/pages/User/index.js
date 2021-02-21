@@ -27,8 +27,9 @@ function User(props) {
 
       const response = await Api.get(`/${id}`);
 
-      const responseQRCODE = await Api.get(`/qr/${id}`);
-      console.log(responseQRCODE);
+      const responseQRCODE = await Api.get(`/show/${id}`);
+      
+      const imageURL = responseQRCODE.config.baseURL + responseQRCODE.config.url;
 
       if(response.data.error) {
         return
@@ -47,7 +48,8 @@ function User(props) {
         whatsappMask: whatsapp,
         instagram: instaRemoveMask,
         email,
-        nome 
+        nome,
+        imageURL
       };
       //6031b70f2aaec2001509be87
       setWsp(wpRemoveMask)
@@ -66,7 +68,7 @@ function User(props) {
         </a>
 
         <InfoText>
-          <img src={user.qrcoresponseQRCODE} alt="qrcode"/>
+          <img src={user.imageURL} alt="qrcode"/>
 
           <h1>{user.nome}</h1>
           <div>
