@@ -19,6 +19,7 @@ function Main() {
   const [ whatsapp, setWhatsapp ] = useState('');
   const [ error, setError ] = useState(false);
   const [ idUser, setIdUser ] = useState('');
+  const [ loading, setLoading ] = useState(false);
 
   const handleNavigate = () => {
     history.push(`/user/${idUser}`);
@@ -28,6 +29,7 @@ function Main() {
   const handleSubmit = async (e) => {
     try {
       e.preventDefault();
+      setLoading(true);
 
       const reqData = {
         nome: name,
@@ -42,11 +44,11 @@ function Main() {
         setError(true);
         return
       }
-      
-      setIdUser(response.data);
 
+      setIdUser(response.data);
+      setLoading(false);
     }catch(err) {
-      console.log('err');
+      setError(true);
     }
   };
 
@@ -90,7 +92,8 @@ function Main() {
               required
               onChange={(e) => setWhatsapp(e.target.value)}
             />
-            <ButtonComponent type="submit">Cadastrar</ButtonComponent>
+            {!loading && <ButtonComponent type="submit">Cadastrar</ButtonComponent>}
+            {loading && <h1>Carregando..</h1>}
           </Form>
           </>
         )}

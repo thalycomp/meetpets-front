@@ -15,9 +15,19 @@ import {
 function User(props) {
   const [user, setUser] = useState([]);
   const [wsp, setWsp] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
-    getUserApi();
+    const fechApi = async () => {
+      setError(false);
+      setLoading(true);
+
+      await getUserApi();
+
+      setLoading(false);
+    }
+    fechApi();
   }, []);
   
   const getUserApi = async () => {
@@ -28,10 +38,11 @@ function User(props) {
       const response = await Api.get(`/${id}`);
 
       const responseQRCODE = await Api.get(`/show/${id}`);
-      
+
       const imageURL = responseQRCODE.config.baseURL + responseQRCODE.config.url;
 
       if(response.data.error) {
+        setError(true);
         return
       }
       const {
@@ -43,7 +54,7 @@ function User(props) {
 
       const wpRemoveMask = whatsapp.replace(/\D+/g, '');
       const instaRemoveMask = instagram.replace('@', '');
-      console.log(wpRemoveMask);
+      
       const newData = {
         whatsappMask: whatsapp,
         instagram: instaRemoveMask,
@@ -56,7 +67,7 @@ function User(props) {
       setUser(newData);
         
     }catch(err) {
-  
+      setError(true);
     }
   };
 
@@ -66,27 +77,35 @@ function User(props) {
         <a href="/" className="">
           <img src={logo} alt="logo meetpets"/>
         </a>
+        {error ? <h1>Cadastro não encontrado</h1> : (<>
+        {loading ? <h1>Carregando..</h1> : (
+          <>
+          <InfoText>
+            <img src={user.imageURL} alt="qrcode"/>
 
-        <InfoText>
-          <img src={user.imageURL} alt="qrcode"/>
+            <h1>{user.nome}</h1>
+            <div>
+              <RiWhatsappLine size={20}/>
+              <a href={`https://web.whatsapp.com/send?phone=${wsp}`} target="_blank">
+                <p>{user.whatsappMask}</p>
+              </a>
+            </div>
+            <div>
+              <RiInstagramLine size={20}/>
+              <a href={`https://instagram.com/${user.instagram}`}target="_blank">
+                <p>@{user.instagram}</p>
+              </a>
+            </div>
 
-          <h1>{user.nome}</h1>
-          <div>
-            <RiWhatsappLine size={20}/>
-            <a href={`https://web.whatsapp.com/send?phone=${wsp}`} target="_blank">
-              <p>{user.whatsappMask}</p>
-            </a>
-          </div>
-          <div>
-            <RiInstagramLine size={20}/>
-            <a href={`https://instagram.com/${user.instagram}`}target="_blank">
-              <p>@{user.instagram}</p>
-            </a>
-          </div>
-
-        </InfoText>
-        <ButtonComponent>Imprimir</ButtonComponent>
-        <ButtonComponent>Gerar novo</ButtonComponent>
+          </InfoText>
+          <ButtonComponent>Imprimir</ButtonComponent>
+          <Link  to="/">
+            <ButtonComponent>Gerar novo</ButtonComponent>
+          </Link>
+          </>
+        )}
+        </>
+        )}
       </Info>
     </Container>
   )

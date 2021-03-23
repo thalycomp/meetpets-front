@@ -20,6 +20,7 @@ export const Info = styled.section`
   h1 {
     color: var(--branco-color);
     font-size: 20px;
+    margin: 0px 20px 20px 20px;
   }
 
   em {
@@ -45,5 +46,12 @@ export const Form = styled.form`
     &::placeholder {
       color: var(--branco-color);
     }
+  }
+
+  h1 {
+    color: var(--branco-color);
+    font-size: 20px;
+    margin-top: 20px;
+    text-align: center;
   }
 `;

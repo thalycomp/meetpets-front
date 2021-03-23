@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const Button = styled.button`
-  max-width: 290px;
   height: 45px;
   border-radius: 6px;
   background: var(--amarelo-color);
@@ -14,7 +13,7 @@ export const Button = styled.button`
 
   margin-top: 10px;
   opacity: 1;
-
+  padding: 10px;
   &:hover {
     opacity: 0.8;
   }
