@@ -39,7 +39,7 @@ function Main() {
       };
 
       const response = await Api.post('/', reqData);
-
+      console.log(response);
       if(response.data.error) {
         setError(true);
         return

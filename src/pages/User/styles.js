@@ -7,6 +7,19 @@ export const Container = styled.main`
   width: 100%;
   height: 100vh;
 `;
+export const ContainerButton = styled.div`
+  margin: 25px;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 0;
+
+  a {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+`;
 
 export const Info = styled.section`
   display: flex;

@@ -9,7 +9,8 @@ import Api from '../../services/Api';
 import { 
   Container,
   Info,
-  InfoText
+  InfoText,
+  ContainerButton
 } from './styles';
 
 function User(props) {
@@ -37,7 +38,7 @@ function User(props) {
 
       const response = await Api.get(`/${id}`);
 
-      const responseQRCODE = await Api.get(`/show/${id}`);
+      const responseQRCODE = await Api.get(`/qr/${id}`);
 
       const imageURL = responseQRCODE.config.baseURL + responseQRCODE.config.url;
 
@@ -98,10 +99,12 @@ function User(props) {
             </div>
 
           </InfoText>
-          <ButtonComponent>Imprimir</ButtonComponent>
-          <Link  to="/">
-            <ButtonComponent>Gerar novo</ButtonComponent>
-          </Link>
+          <ContainerButton>
+            <ButtonComponent>Imprimir</ButtonComponent>
+            <Link  to="/">
+              <ButtonComponent>Gerar novo</ButtonComponent>
+            </Link>
+          </ContainerButton>
           </>
         )}
         </>

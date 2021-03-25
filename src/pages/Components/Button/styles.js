@@ -14,6 +14,7 @@ export const Button = styled.button`
   margin-top: 10px;
   opacity: 1;
   padding: 10px;
+  
   &:hover {
     opacity: 0.8;
   }
