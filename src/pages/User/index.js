@@ -63,7 +63,7 @@ function User(props) {
         nome,
         imageURL
       };
-      //6031b70f2aaec2001509be87
+
       setWsp(wpRemoveMask)
       setUser(newData);
         
