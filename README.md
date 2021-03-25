@@ -6,7 +6,7 @@
 Meet Pets
 </h1>
 
-<p align="center">Meet Peets é um gerador de QRCODE para feira de adoção fictícia de pets. Esse projeto foi desenvolvido em parceria com amigos, também apaixonados por tecnologia, que buscam se divertir criando projetinhos nos finais de semana. No intuito de explorarmos as potencialidades de cada um, segue: <u>UX/UI</u> contamos com a <a href="https://www.linkedin.com/in/thayzaalencar/" target="_blank">Thayza Alencar</a>; para o <u>back-end</u>, <a href="https://github.com/rachidb5" target="_blank">Rachid Bastos</a>; no <u>front-end</u>, <a href="https://github.com/thalycomp" target="_blank">Thalyta Alencar</a>.
+<p align="center">Meet Peets é um gerador de QRCODE para feira de adoção fictícia de pets. Esse projeto foi desenvolvido em parceria com amigos, também apaixonados por tecnologia, que buscam se divertir criando projetinhos aos finais de semana. No intuito de explorarmos as potencialidades de cada um, segue: <u>UX/UI</u> contamos com a <a href="https://www.linkedin.com/in/thayzaalencar/" target="_blank">Thayza Alencar</a>; para o <u>back-end</u>, <a href="https://github.com/rachidb5" target="_blank">Rachid Bastos</a>; no <u>front-end</u>, <a href="https://github.com/thalycomp" target="_blank">Thalyta Alencar</a>.
 </p>
 <br>
 <p align="center">
@@ -26,10 +26,7 @@ Meet Pets
 Você está no repositório front-end do projeto. Caso queira acessar o do back ou figma: 
 
 - <a href="https://www.figma.com/file/z2znrgrhorjxaGT84XMUI4/qcodeproject?node-id=8%3A0" target="_blank">Figma</a> 
-<br>
 - <a href="https://github.com/rachidb5/meetpets-back" target="_blank">Backend</a>
-
-
 
 <hr />
 
